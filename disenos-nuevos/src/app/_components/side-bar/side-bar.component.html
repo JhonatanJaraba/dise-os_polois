@@ -1,0 +1,158 @@
+<div>
+  <nz-layout >
+        <nz-sider  nzCollapsible nzWidth="240px" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" >
+          <ul  nz-menu nzMode="inline">
+            <div class="logo" *ngIf="!isCollapsed">
+              <a>
+              <img class="icon-menu" src="http://set-archivos-test.s3.amazonaws.com/logos/polis.png" alt="logo">
+              </a>
+            </div>
+            <div class="logo" *ngIf="isCollapsed">
+              <a href="">
+              <img src="../../../assets/Frame.svg" alt="logo">
+              </a>
+            </div>
+            <form nz-form *ngIf="!isCollapsed">
+              <nz-form-item>
+                <nz-form-control [nzSpan]="22" >
+                  <nz-input-group nzPrefixIcon="search" style="color: #798CA5; justify-content: center;" class="type-control">
+                  <input nz-input name="email" type="email" id="email">
+                </nz-input-group>
+                </nz-form-control>
+              </nz-form-item >
+            </form>
+            <form nz-form *ngIf="isCollapsed">
+              <nz-form-item>
+                <nz-form-control [nzSpan]="16" >
+                  <nz-input-group nzPrefixIcon="search" style="color: #798CA5; justify-content: center;" class="type-control">
+                  <input nz-input name="email" type="email" id="email">
+                </nz-input-group>
+                </nz-form-control>
+              </nz-form-item >
+            </form>
+            <li nz-menu-item>
+              <a [routerLink]="['']" routerLinkActive="item--active" 
+              [routerLinkActiveOptions]="{exact: true}">
+              <i nz-icon [nzType]="'home'" style="font-size: 20px;" ></i>
+              <span class="text-side-bar" >Inicio</span>
+            </a>
+            </li>
+            
+            <li nz-submenu routerLinkActive="item--active">
+              <span title><i nz-icon nzType="car" style="font-size: 20px;"></i><span>Transporte</span></span>
+              <ul >
+                <li nz-menu-item [routerLink]="['/home']">Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+          
+            <li nz-submenu><span title><i nz-icon nzType="tags" style="font-size: 20px;"></i><span>Tarifas</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="percentage" style="font-size: 20px;"></i><span>Descuentos</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="team" style="font-size: 20px;"></i><span>Clientes</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="dollar" style="font-size: 20px;"></i><span>Clearing</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="credit-card" style="font-size: 20px;"></i><span>Medios de pago</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="file-search" style="font-size: 20px;"></i><span>Informes</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="environment" style="font-size: 20px;"></i><span>Parking</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="stop" style="font-size: 20px;"></i><span>Antifraude</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <li nz-submenu><span title><i nz-icon nzType="setting" style="font-size: 20px;"></i><span>Administración</span></span>
+              <ul>
+                <li nz-menu-item>Tom</li>
+                <li nz-menu-item>Bill</li>
+                <li nz-menu-item>Alex</li>
+              </ul>
+            </li>
+            <nz-footer class="footer-login" *ngIf="!isCollapsed">
+              <img src="../../../assets/Logo company.svg" alt="">
+            </nz-footer>
+            <nz-footer style="padding: 0px 20px; background: #FFFFFF; width: 0px;" *ngIf="isCollapsed">
+              <img src="../../../assets/Logo_company_2.svg" alt="">
+            </nz-footer>
+          </ul>
+        </nz-sider>
+        <nz-layout>
+          <nz-header>
+            <i
+              nz-col nzSpan="1"
+              class="trigger"
+              nz-icon
+              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              (click)="isCollapsed = !isCollapsed"
+            ></i>
+            <div nz-col nzSpan="12" style="display: flex; align-items: center;">
+              <div class="input-hedear" nz-col nzSpan="19">
+              <nz-form-item nz-col nzSpan="24" style="display: flex;">
+                <nz-form-label [nzSpan]="9">Entidad</nz-form-label>
+                <nz-form-control [nzSpan]="14"  nzHasFeedback>
+                  <nz-select name="select-validate" [ngModel]="'Option 0'" nzBorderless >
+                    <nz-option nzValue="Option 0" nzLabel="Seleccione entidad"></nz-option>
+                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+               </nz-form-item>
+              </div>
+              <p class="separador"></p>
+              <div nz-col nzSpan="2" class="input-sesion" style="display: flex; align-items: center;">
+                <nz-avatar nz-col [nzSpan]="18" nzText="PL" style="color:#FFFFFF; background-color:#00AE8D;"></nz-avatar>
+                  <nz-select nz-col [nzSpan]="15" style="background: #FFFF !important;" name="select-validate" nzBorderless nzAutoFocus>
+                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+                  </nz-select>
+              </div>
+            </div>
+          </nz-header>
+          <nz-content>
+            <div class="inner-content"><router-outlet></router-outlet></div>
+          </nz-content>
+        </nz-layout>
+      </nz-layout>
+  </div>
