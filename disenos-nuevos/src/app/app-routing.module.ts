@@ -1,17 +1,34 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ForgetPasswordComponent } from './_components/forget-password/forget-password.component';
-import { HomeComponent } from './_components/home/home.component';
-import { LoginComponent } from './_components/login/login.component';
-import { RestorePasswordComponent } from './_components/restore-password/restore-password.component';
-import { SideBarComponent } from './_components/side-bar/side-bar.component';
+import { AuthGuardService } from './guard/auth-guard.service';
+import { AuthComponent } from './modules/auth/auth/auth.component';
+import { MainComponent } from './modules/main/main/main.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+
+
 
 const routes: Routes = [
-  {path: "login", component: LoginComponent},
-  {path: "forget", component: ForgetPasswordComponent},
-  {path: "restore", component: RestorePasswordComponent},
-  {path: "side-bar", component: SideBarComponent},
-  {path: "home", component: HomeComponent}
+  {
+    path: "", 
+    component: AuthComponent,
+    loadChildren:() => import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: "main", 
+    component: MainComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService],
+    loadChildren:() => import('./modules/main/main.module').then(m => m.MainModule)
+  },
+
+
+  // {
+  //   path: "polis", 
+  //   component: AuthComponent,
+  //   loadChildren:() => import('./modules/main/main.module').then(m => m.MainModule)
+  // },
+  // {path: "forget", component: ForgetPasswordComponent},
+  // {path: "restore", component: RestorePasswordComponent},
+  // {path: "side-bar", component: SideBarComponent},
+  // {path: "home", component: HomeComponent}
 ];
 
 @NgModule({

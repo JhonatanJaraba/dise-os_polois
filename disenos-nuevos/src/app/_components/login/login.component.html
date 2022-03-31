@@ -10,21 +10,32 @@
           <p class="text-title">Inicio de sesión</p>
           <p class="text-secundary">¡Bienvenido! Ingrese sus datos para acceder a la plataforma.</p>
         </div>
-        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm(template)">
           <label style="color: #80888e;">Nombre de usuario</label>
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your username!">
                 <nz-input-group nzPrefixIcon="user" class="type-control">
-                  <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                  <input 
+                  type="text" 
+                  nz-input formControlName="userName" 
+                  placeholder="Ingrese su usuario" 
+                  />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
           <label style="color: #80888e;">Contraseña</label>
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your Password!">
-                <nz-input-group nzPrefixIcon="lock" class="type-control">
-                  <input type="password" nz-input formControlName="password" placeholder="Password" />
+                <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock" class="type-control">
+                  <input
+                    [type]="passwordVisible ? 'text' : 'password'"
+                    nz-input formControlName="password"
+                    placeholder="Ingrese su contraseña"
+                  />
                 </nz-input-group>
+                <ng-template #suffixTemplate>
+                  <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+                </ng-template>
               </nz-form-control>
             </nz-form-item>
             <button nz-button class="login-form-button login-form-margin button-green" [nzType]="'primary'">Ingresar</button>
@@ -34,12 +45,12 @@
               </div>
             </div>
           </form>
+          
         </div>
         <nz-footer class="footer-login">
           <img src="../../../assets/v1.svg" alt="" style="margin: 0px 16px;"> © 2021 Extreme Technologies S.A.
         </nz-footer>
       </div>
-      
     </div>
       <div nz-col nzXs="0" nzSm="0" nzMd="0" nzLg="10" nzXl="12">
         <div class="suppor-fondo">
@@ -59,3 +70,17 @@
       </div>
     </div>
 </div>
+
+<ng-template #template>
+  <div class="ant-notification-notice-content">
+    <div class="ant-notification-notice-with-icon">
+      <span class="ant-notification-notice-icon">
+        <i nz-icon nzType="frown" style="color: rgb(233, 16, 16);"></i>
+      </span>
+      <div class="ant-notification-notice-message">{{notifyMensaje}}</div>
+      <div class="ant-notification-notice-description">
+        {{errorMensaje}}
+      </div>
+    </div>
+  </div>
+</ng-template>

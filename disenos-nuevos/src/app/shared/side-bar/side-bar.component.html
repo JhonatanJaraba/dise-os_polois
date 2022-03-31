@@ -132,7 +132,7 @@
               <nz-form-item nz-col nzSpan="24" style="display: flex;">
                 <nz-form-label [nzSpan]="9">Entidad</nz-form-label>
                 <nz-form-control [nzSpan]="14"  nzHasFeedback>
-                  <nz-select name="select-validate" [ngModel]="'Option 0'" nzBorderless >
+                  <nz-select name="select-validate" nzBorderless>
                     <nz-option nzValue="Option 0" nzLabel="Seleccione entidad"></nz-option>
                     <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
                     <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
@@ -151,7 +151,7 @@
             </div>
           </nz-header>
           <nz-content>
-            <div class="inner-content"><router-outlet></router-outlet></div>
+            <div class="inner-content"><!--<router-outlet></router-outlet>--></div>
           </nz-content>
         </nz-layout>
       </nz-layout>
