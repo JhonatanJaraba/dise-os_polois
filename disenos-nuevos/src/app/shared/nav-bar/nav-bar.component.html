@@ -1,0 +1,31 @@
+<nz-header>
+    <i
+      nz-col nzSpan="1"
+      class="trigger"
+      nz-icon
+      [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+      (click)="sidebar(isCollapsed = !isCollapsed)"
+    ></i><!-- (click)="isCollapsed = !isCollapsed" -->
+    <div nz-col nzSpan="12" style="display: flex; align-items: center;">
+      <div class="input-hedear" nz-col nzSpan="19">
+      <nz-form-item nz-col nzSpan="24" style="display: flex;">
+        <nz-form-label [nzSpan]="9">Entidad</nz-form-label>
+        <nz-form-control [nzSpan]="14"  nzHasFeedback>
+          <nz-select name="select-validate" nzBorderless>
+            <nz-option nzValue="Option 0" nzLabel="Seleccione entidad"></nz-option>
+            <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+            <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+          </nz-select>
+        </nz-form-control>
+       </nz-form-item>
+      </div>
+      <p class="separador"></p>
+      <div nz-col nzSpan="2" class="input-sesion" style="display: flex; align-items: center;">
+        <nz-avatar nz-col [nzSpan]="18" nzText="PL" style="color:#FFFFFF; background-color:#00AE8D;"></nz-avatar>
+          <nz-select nz-col [nzSpan]="15" style="background: #FFFF !important;" name="select-validate" nzBorderless nzAutoFocus>
+            <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+            <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+          </nz-select>
+      </div>
+    </div> 
+  </nz-header>

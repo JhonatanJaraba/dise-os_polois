@@ -18,10 +18,7 @@ const routes: Routes = [
     path:"forget",
     component: ForgetPasswordComponent
   },
-  {
-    path:"home",
-    component: HomeComponent
-  },
+
   {
     path:"",
     redirectTo:'/login',

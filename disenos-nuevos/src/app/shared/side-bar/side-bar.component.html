@@ -31,7 +31,7 @@
               </nz-form-item >
             </form>
             <li nz-menu-item>
-              <a [routerLink]="['']" routerLinkActive="item--active" 
+              <a [routerLink]="['/main']" routerLinkActive="item--active" 
               [routerLinkActiveOptions]="{exact: true}">
               <i nz-icon [nzType]="'home'" style="font-size: 20px;" ></i>
               <span class="text-side-bar" >Inicio</span>
@@ -41,7 +41,7 @@
             <li nz-submenu routerLinkActive="item--active">
               <span title><i nz-icon nzType="car" style="font-size: 20px;"></i><span>Transporte</span></span>
               <ul >
-                <li nz-menu-item [routerLink]="['/home']">Tom</li>
+                <li nz-menu-item>Tom</li>
                 <li nz-menu-item>Bill</li>
                 <li nz-menu-item>Alex</li>
               </ul>
@@ -118,41 +118,6 @@
             </nz-footer>
           </ul>
         </nz-sider>
-        <nz-layout>
-          <nz-header>
-            <i
-              nz-col nzSpan="1"
-              class="trigger"
-              nz-icon
-              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-              (click)="isCollapsed = !isCollapsed"
-            ></i>
-            <div nz-col nzSpan="12" style="display: flex; align-items: center;">
-              <div class="input-hedear" nz-col nzSpan="19">
-              <nz-form-item nz-col nzSpan="24" style="display: flex;">
-                <nz-form-label [nzSpan]="9">Entidad</nz-form-label>
-                <nz-form-control [nzSpan]="14"  nzHasFeedback>
-                  <nz-select name="select-validate" nzBorderless>
-                    <nz-option nzValue="Option 0" nzLabel="Seleccione entidad"></nz-option>
-                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
-                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
-                  </nz-select>
-                </nz-form-control>
-               </nz-form-item>
-              </div>
-              <p class="separador"></p>
-              <div nz-col nzSpan="2" class="input-sesion" style="display: flex; align-items: center;">
-                <nz-avatar nz-col [nzSpan]="18" nzText="PL" style="color:#FFFFFF; background-color:#00AE8D;"></nz-avatar>
-                  <nz-select nz-col [nzSpan]="15" style="background: #FFFF !important;" name="select-validate" nzBorderless nzAutoFocus>
-                    <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
-                    <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
-                  </nz-select>
-              </div>
-            </div>
-          </nz-header>
-          <nz-content>
-            <div class="inner-content"><!--<router-outlet></router-outlet>--></div>
-          </nz-content>
-        </nz-layout>
       </nz-layout>
+      
   </div>

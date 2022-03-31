@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
 import { LoginServiceService } from '../serivces/login-service/login-service.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class MainGuardService {
 
-  constructor(private authService: LoginServiceService, private router: Router,) { 
-  }
+  constructor(private authService: LoginServiceService, private router: Router,) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.validAuth();
@@ -22,24 +20,11 @@ export class AuthGuardService {
   private validAuth(): boolean {
     const token = this.authService.getToken();
     if (token) {
-      const time = Math.floor((new Date().getTime() / 1000));
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      const {exp} = payload;
-      
-      if (exp > time) {
-        return true;
-      } else {
-        /*Swal.fire(this.utils.getInfoModalOptions('Su sesión ha expirado.', 'Información'))
-          .then(value => {*/
-            this.authService.closeSession();
-          /*});*/
-        return false;
-      }
+      this.router.navigateByUrl('/main');
+      return true;
     } else {
       this.router.navigateByUrl('/login');
       return false;
     }
   }
-
-
 }

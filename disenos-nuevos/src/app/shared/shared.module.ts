@@ -4,10 +4,12 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { AntDesignModule } from '../ant-design.module';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
-    SideBarComponent
+    SideBarComponent,
+    NavBarComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
   ],
   exports:[
-    SideBarComponent
+    SideBarComponent,
+    NavBarComponent
   ]
 })
 export class SharedModule { }

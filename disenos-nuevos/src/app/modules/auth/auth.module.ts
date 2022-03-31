@@ -17,7 +17,6 @@ import { HomeComponent } from 'src/app/_components/home/home.component';
     RestorePasswordComponent,
     LoginComponent,
     ForgetPasswordComponent,
-    HomeComponent
   ],
   imports: [
     CommonModule,

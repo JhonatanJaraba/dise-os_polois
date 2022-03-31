@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
+
+   /* BehaviorSubject */
+   sideBehavior : any;
+   private subjectSidebar = new BehaviorSubject<any>('');
+   subjectSidebarBehavior = this.subjectSidebar.asObservable();
 
   static FILTER = 'FILTER';
   static EDIT = 'EDIT';
@@ -32,5 +38,10 @@ export class UtilsService {
 
   constructor() { }
 
+
+  señalesBehavior(sideBehavior: any){
+    this.sideBehavior = sideBehavior;
+    this.subjectSidebar.next(sideBehavior);
+  }
   
 }
